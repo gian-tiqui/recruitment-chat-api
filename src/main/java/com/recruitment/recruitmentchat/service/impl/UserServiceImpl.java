@@ -6,10 +6,14 @@ import com.recruitment.recruitmentchat.exception.ResourceNotFoundException;
 import com.recruitment.recruitmentchat.mapper.UserMapper;
 import com.recruitment.recruitmentchat.repository.UserRepo;
 import com.recruitment.recruitmentchat.service.UserService;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
+@AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
   private UserRepo userRepo;
