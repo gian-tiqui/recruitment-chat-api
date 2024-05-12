@@ -5,9 +5,13 @@ import com.recruitment.recruitmentchat.entity.Messages;
 import com.recruitment.recruitmentchat.mapper.MessagesMapper;
 import com.recruitment.recruitmentchat.repository.MessagesRepo;
 import com.recruitment.recruitmentchat.service.MessagesService;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@AllArgsConstructor
 public class MessagesServiceImpl implements MessagesService {
 
     MessagesRepo messagesRepo;
