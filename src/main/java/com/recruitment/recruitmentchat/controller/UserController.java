@@ -17,12 +17,21 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
+    public ResponseEntity<Object> createUser(@RequestBody UserDto userDto) {
+
+        if (userService.findEmail(userDto.getEmail()) != null) {
+            return ResponseEntity.badRequest().body("Email already exists");
+        }
+
+        if (userService.findPhone(userDto.getPhone()) != null) {
+            return ResponseEntity.badRequest().body("phone already exists");
+        }
 
         UserDto savedUser = userService.createUser(userDto);
 
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
+
 
     @GetMapping("{id}")
     public ResponseEntity<UserDto> getUserById(@PathVariable("id") Long userId) {
@@ -43,5 +52,10 @@ public class UserController {
     @DeleteMapping("{id}")
     public void deleteUser(@PathVariable("id") Long userId) {
         userService.deleteUser(userId);
+    }
+
+    @PostMapping
+    public ResponseEntity<UserDto> authenticate(@RequestBody UserDto userDto) {
+        return null;
     }
 }
