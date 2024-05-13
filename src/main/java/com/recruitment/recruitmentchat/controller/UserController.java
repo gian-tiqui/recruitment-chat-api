@@ -53,9 +53,4 @@ public class UserController {
     public void deleteUser(@PathVariable("id") Long userId) {
         userService.deleteUser(userId);
     }
-
-    @PostMapping
-    public ResponseEntity<UserDto> authenticate(@RequestBody UserDto userDto) {
-        return null;
-    }
 }
