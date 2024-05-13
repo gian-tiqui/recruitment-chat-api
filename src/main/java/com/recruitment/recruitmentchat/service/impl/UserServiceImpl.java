@@ -2,6 +2,7 @@ package com.recruitment.recruitmentchat.service.impl;
 
 import com.recruitment.recruitmentchat.dto.UserDto;
 import com.recruitment.recruitmentchat.entity.User;
+import com.recruitment.recruitmentchat.exception.EmailFoundException;
 import com.recruitment.recruitmentchat.exception.ResourceNotFoundException;
 import com.recruitment.recruitmentchat.mapper.UserMapper;
 import com.recruitment.recruitmentchat.repository.UserRepo;
@@ -17,6 +18,17 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
 
   private UserRepo userRepo;
+
+
+  @Override
+  public UserDto findPhone(String phone) {
+    return UserMapper.mapToUserDto(userRepo.findByEmail(phone));
+  }
+
+  @Override
+  public UserDto findEmail(String email) {
+      return UserMapper.mapToUserDto(userRepo.findByEmail(email));
+  }
 
   @Override
   public UserDto createUser(UserDto userDto) {

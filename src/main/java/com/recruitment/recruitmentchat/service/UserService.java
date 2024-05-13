@@ -7,6 +7,8 @@ import java.util.List;
 
 
 public interface UserService {
+  UserDto findPhone(String phone);
+  UserDto findEmail(String email);
   UserDto createUser(UserDto userDto);
   UserDto getUserById(Long userId);
   UserDto editUser(Long userId, User updatedUser);
