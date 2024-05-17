@@ -1,11 +1,11 @@
 package com.recruitment.recruitmentchat.controller;
 
 import com.recruitment.recruitmentchat.dto.MessageDto;
+import com.recruitment.recruitmentchat.entity.Messages;
+import com.recruitment.recruitmentchat.mapper.MessagesMapper;
 import com.recruitment.recruitmentchat.service.MessagesService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +22,10 @@ public class MessagesController {
         return ResponseEntity.ok(messageDtos);
     }
 
+    @PostMapping
+    public ResponseEntity<MessageDto> createMessage(@RequestBody MessageDto messageDto) {
+        MessageDto savedMessage = messagesService.createMessage(messageDto);
 
+        return ResponseEntity.ok(messageDto);
+    }
 }
