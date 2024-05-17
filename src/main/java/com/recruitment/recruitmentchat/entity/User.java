@@ -1,10 +1,7 @@
 package com.recruitment.recruitmentchat.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -12,8 +9,7 @@ import java.time.format.DateTimeParseException;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Data
 @Entity(name = "users")
 public class User {
 
